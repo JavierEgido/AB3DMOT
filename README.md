@@ -159,7 +159,9 @@ To visualize the qualitative results of our 3D MOT system on real-time images, p
   ```
   $ python visualization_ros.py
   ```
-
  
 ### Acknowledgement
 Part of the code is borrowed from "[SORT](https://github.com/abewley/sort)"
+
+## Contact
+This fork is maintained by ["Javier del Egido"](https://github.com/JavierEgido) and ["Robesafe research group"](https://github.com/RobeSafe-UAH)
