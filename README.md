@@ -1,4 +1,5 @@
 <img src="docs/robesafe_logo_calidad_grande.jpg" align="right" width="24%">
+
 # AB3DMOT
 
 
@@ -6,7 +7,9 @@
 
 The original repository contains the official python implementation for our full paper at IROS 2020 "[3D Multi-Object Tracking: A Baseline and New Evaluation Metrics](http://www.xinshuoweng.com/papers/AB3DMOT/camera_ready.pdf)".
 
-<img align="center" src="https://github.com/xinshuoweng/AB3DMOT/blob/master/main.gif">
+<p align="center">
+    <img src="https://github.com/xinshuoweng/AB3DMOT/blob/master/main.gif" align="center" width="50%">
+  </p>
 
 This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on ["Techs4AgeCar vehicle"](http://www.robesafe.uah.es/index.php/es-es/) developed by ["Robesafe research group"](https://github.com/RobeSafe-UAH).
 
