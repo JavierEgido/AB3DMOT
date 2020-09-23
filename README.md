@@ -13,6 +13,8 @@ The original repository contains the official python implementation for our full
 
 This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on ["Techs4AgeCar vehicle"](http://www.robesafe.uah.es/index.php/es-es/) developed by ["Robesafe research group"](https://github.com/RobeSafe-UAH).
 
+ROS messages provided by ["BEV_tracking ROS"](https://github.com/JavierEgido/bevtracking) package are needed
+
 <p align="center">
   <img src="docs/Smartcar.jpg" align="center" width="50%">
 </p>
