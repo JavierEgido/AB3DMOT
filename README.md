@@ -1,65 +1,33 @@
 # AB3DMOT
+<img src="docs/robesafe_logo_calidad_grande.jpg" align="right" width="24%">
 
-<b>3D Multi-Object Tracking: A Baseline and New Evaluation Metrics (IROS 2020, ECCVW 2020)</b>
+<b>3D Multi-Object Tracking: A Baseline and New Evaluation Metrics. A fork</b>
 
-This repository contains the official python implementation for our full paper at IROS 2020 "[3D Multi-Object Tracking: A Baseline and New Evaluation Metrics](http://www.xinshuoweng.com/papers/AB3DMOT/camera_ready.pdf)" and short paper "[AB3DMOT: A Baseline for 3D Multi-Object Tracking and New Evaluation Metrics](http://www.xinshuoweng.com/papers/AB3DMOT_eccvw/camera_ready.pdf)" at ECCVW 2020. Our project website and video demos are [here](http://www.xinshuoweng.com/projects/AB3DMOT/). If you find our paper or code useful, please cite our papers:
+The original repository contains the official python implementation for our full paper at IROS 2020 "[3D Multi-Object Tracking: A Baseline and New Evaluation Metrics](http://www.xinshuoweng.com/papers/AB3DMOT/camera_ready.pdf)".
 
-```
-@article{Weng2020_AB3DMOT, 
-author = {Weng, Xinshuo and Wang, Jianren and Held, David and Kitani, Kris}, 
-journal = {IROS}, 
-title = {{3D Multi-Object Tracking: A Baseline and New Evaluation Metrics}}, 
-year = {2020} 
-}
-```
-```
-@article{Weng2020_AB3DMOT_eccvw, 
-author = {Weng, Xinshuo and Wang, Jianren and Held, David and Kitani, Kris}, 
-journal = {ECCVW}, 
-title = {{AB3DMOT: A Baseline for 3D Multi-Object Tracking and New Evaluation Metrics}}, 
-year = {2020} 
-}
-```
+This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on ["Techs4AgeCar vehicle"](http://www.robesafe.uah.es/index.php/es-es/) developed by ["Robesafe research group"](https://github.com/RobeSafe-UAH).
+
 
 <img align="center" src="https://github.com/xinshuoweng/AB3DMOT/blob/master/main.gif">
 
+<p align="center">
+  <img src="docs/Smartcar.jpg" align="center" width="50%">
+</p>
+
 ## Overview
-- [News](#news)
 - [Introduction](#introduction)
 - [Dependencies](#dependencies)
 - [3D Object Detection](#3d-object-detection)
 - [3D Multi-Object Tracking](#3d-multi-object-tracking)
 - [Acknowledgement](#acknowledgement)
 
-## News
-- Aug. 06, 2020: Extended abstract (one oral) accepted at two ECCV workshops: [WiCV](https://sites.google.com/view/wicvworkshop-eccv2020/), [PAD](https://sites.google.com/view/pad2020/accepted-papers?authuser=0)
-- Jul. 05, 2020: 2D MOT results on KITTI for all three categories released
-- Jul. 04, 2020: Code modularized and a minor bug in KITTI evaluation for DontCare objects fixed
-- Jun. 30, 2020: Paper accepted at IROS 2020
-- Jan. 10, 2020: New metrics sAMOTA added and results updated
-- Aug. 21, 2019: Python 3 supported
-- Aug. 21, 2019: 3D MOT results on KITTI "Pedestrian" and "Cyclist" categories released
-- Aug. 19, 2019: A minor bug in orientation correction fixed
-- Jul. 9, 2019: Code and 3D MOT results on KITTI "Car" category released, support Python 2 only
-
 ## Introduction
 3D multi-object tracking (MOT) is an essential component technology for many real-time applications such as autonomous driving or assistive robotics. However, recent works for 3D MOT tend to focus more on developing accurate systems giving less regard to computational cost and system complexity. In contrast, this work proposes a simple yet accurate real-time baseline 3D MOT system. We use an off-the-shelf 3D object detector to obtain oriented 3D bounding boxes from the LiDAR point cloud. Then, a combination of 3D Kalman filter and Hungarian algorithm is used for state estimation and data association. Although our baseline system is a straightforward combination of standard methods, we obtain the state-of-the-art results. To evaluate our baseline system, we propose a new 3D MOT extension to the official KITTI 2D MOT evaluation along with two new metrics. Our proposed baseline method for 3D MOT establishes new state-of-the-art performance on 3D MOT for KITTI, improving the 3D MOTA from 72.23 of prior art to 76.47. Surprisingly, by projecting our 3D tracking results to the 2D image plane and compare against published 2D MOT methods, our system places 2nd on the official KITTI leaderboard. Also, our proposed 3D MOT method runs at a rate of 214.7 FPS, 65 times faster than the state-of-the-art 2D MOT system. 
 
+This fork adds ROS communications with custom ["OpenPCDet Detection framework"](https://github.com/JavierEgido/OpenPCDet) in order to set a functional real-time Detection and Multi-Object Tracking (DAMOT) pipeline.
+
 ## Dependencies:
-This code depends on my personal toolbox: https://github.com/xinshuoweng/Xinshuo_PyToolbox. Please install the toolbox by
-
-*1. Clone the github repository.*
-~~~shell
-git clone https://github.com/xinshuoweng/Xinshuo_PyToolbox
-~~~
-
-*2. Install dependency for the toolbox.*
-~~~shell
-cd Xinshuo_PyToolbox
-pip install -r requirements.txt
-~~~
-
-Additionaly, it also requires the following packages:
+This code requires the following packages:
 1. scikit-learn==0.19.2
 2. filterpy==1.4.5
 3. numba==0.43.1
@@ -101,16 +69,21 @@ To run our tracker on the KITTI MOT validation set with the provided detection:
 
 ```
 $ python main.py pointrcnn_Car_val
-$ python main.py pointrcnn_Pedestrian_val
-$ python main.py pointrcnn_Cyclist_val
 ```
 To run our tracker on the KITTI MOT test set with the provided detection:
 
 ```
 $ python main.py pointrcnn_Car_test
-$ python main.py pointrcnn_Pedestrian_test
 ```
 Then, the results will be saved to "./results" folder. In detail, results in "./results/data" folder are used for MOT evaluation, which follow the format of the KITTI Multi-Object Tracking Challenge (format definition can be found in the tracking development toolkit here: http://www.cvlibs.net/datasets/kitti/eval_tracking.php). On the other hand, results in "./results/trk_withid" folder are used for visualization only, which follow the format of KITTI 3D Object Detection challenge except that we add an ID in the last column.
+
+### ROS Inference
+
+To run real-time ROS tracking coupled with OpenPCDet detection module:
+
+```
+$ python3 main_ros.py
+```
 
 Note that, please run the code when the CPU is not occupied by other programs otherwise you might not achieve similar speed as reported in our paper.
 
@@ -174,6 +147,14 @@ To visualize the qualitative results of our 3D MOT system on images shown in the
   $ python visualization.py pointrcnn_Car_test_thres
   ```
 Visualization results are then saved to "./results/pointrcnn_test_thres/trk_image_vis". If one wants to visualize the results on the entire sequences, please download the KITTI MOT dataset http://www.cvlibs.net/datasets/kitti/eval_tracking.php and move the image_02 (we have already prepared the calib data for you) data to the "./data/KITTI/resources" folder.
+
+### ROS Visualization
+
+To visualize the qualitative results of our 3D MOT system on real-time images, provide correct topic name and calibration file (following KITTI format) on code:
+  ```
+  $ python visualization_ros.py
+  ```
+
  
 ### Acknowledgement
 Part of the code is borrowed from "[SORT](https://github.com/abewley/sort)"
