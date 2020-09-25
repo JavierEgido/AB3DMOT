@@ -11,9 +11,9 @@ The original repository contains the official python implementation for our full
     <img src="docs/KITTI-comp.gif" align="center" width="75%">
   </p>
 
-This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on ["Techs4AgeCar vehicle"](http://www.robesafe.uah.es/index.php/es-es/) developed by ["Robesafe research group"](https://github.com/RobeSafe-UAH).
+This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on [Techs4AgeCar vehicle](http://www.robesafe.uah.es/index.php/es-es/) developed by [Robesafe research group](https://github.com/RobeSafe-UAH).
 
-ROS messages provided by ["BEV_tracking ROS"](https://github.com/JavierEgido/bevtracking) package are needed
+ROS messages provided by [BEV_tracking ROS](https://github.com/JavierEgido/bevtracking) package are needed
 
 <p align="center">
   <img src="docs/Smartcar.jpg" align="center" width="50%">
@@ -29,7 +29,7 @@ ROS messages provided by ["BEV_tracking ROS"](https://github.com/JavierEgido/bev
 ## Introduction
 3D multi-object tracking (MOT) is an essential component technology for many real-time applications such as autonomous driving or assistive robotics. However, recent works for 3D MOT tend to focus more on developing accurate systems giving less regard to computational cost and system complexity. In contrast, this work proposes a simple yet accurate real-time baseline 3D MOT system. We use an off-the-shelf 3D object detector to obtain oriented 3D bounding boxes from the LiDAR point cloud. Then, a combination of 3D Kalman filter and Hungarian algorithm is used for state estimation and data association. Although our baseline system is a straightforward combination of standard methods, we obtain the state-of-the-art results. To evaluate our baseline system, we propose a new 3D MOT extension to the official KITTI 2D MOT evaluation along with two new metrics. Our proposed baseline method for 3D MOT establishes new state-of-the-art performance on 3D MOT for KITTI, improving the 3D MOTA from 72.23 of prior art to 76.47. Surprisingly, by projecting our 3D tracking results to the 2D image plane and compare against published 2D MOT methods, our system places 2nd on the official KITTI leaderboard. Also, our proposed 3D MOT method runs at a rate of 214.7 FPS, 65 times faster than the state-of-the-art 2D MOT system. 
 
-This fork adds ROS communications with custom ["OpenPCDet Detection framework"](https://github.com/JavierEgido/OpenPCDet) in order to set a functional real-time Detection and Multi-Object Tracking (DAMOT) pipeline.
+This fork adds ROS communications with custom [OpenPCDet Detection framework](https://github.com/JavierEgido/OpenPCDet) in order to set a functional real-time Detection and Multi-Object Tracking (DAMOT) pipeline.
 
 ## Dependencies:
 This code requires the following packages:
@@ -164,4 +164,4 @@ To visualize the qualitative results of our 3D MOT system on real-time images, p
 Part of the code is borrowed from "[SORT](https://github.com/abewley/sort)"
 
 ## Contact
-This fork is maintained by ["Javier del Egido"](https://github.com/JavierEgido) and ["Robesafe research group"](https://github.com/RobeSafe-UAH)
+This fork is maintained by [Javier del Egido](https://github.com/JavierEgido) and [Robesafe research group](https://github.com/RobeSafe-UAH)
