@@ -41,6 +41,7 @@ This code requires the following packages:
 6. opencv-python==3.4.3.18
 7. glob2==0.6
 8. llvmlite==0.32.1 (for python 3.6) or llvmlite==0.31.0 (for python 2.7)
+9. [BEV_tracking ROS](https://github.com/JavierEgido/bevtracking)
 
 One can either use the system python or create a virtual enviroment (virtualenv for python2, venv for python3) specifically for this project (https://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv). To install required dependencies on the system python, please run the following command at the root of this code:
 ```
