@@ -11,7 +11,7 @@ The original repository contains the official python implementation for our full
     <img src="docs/KITTI-comp.gif" align="center" width="75%">
   </p>
 
-This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art Detection and Multi-Object Tracking  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on [Techs4AgeCar vehicle](http://www.robesafe.uah.es/index.php/es-es/) developed by [Robesafe research group](https://github.com/RobeSafe-UAH).
+This fork provides the exact version used on Master's Final Project written by **Javier del Egido**. The project studies state-of-the-art **Detection and Multi-Object Tracking**  (DAMOT) proposals in order to desing a funcional pipeline to be embebbed on Nvidia Jetson AGX Xavier mounted on [Techs4AgeCar vehicle](http://www.robesafe.uah.es/index.php/es-es/) developed by [Robesafe research group](https://github.com/RobeSafe-UAH). The fork provides **ROS communications** from custom ROS message from [OpenPCDet detection module](https://github.com/JavierEgido/OpenPCDet) to AB3DMOT Tracking module in order to set a functional real-time Detection and Multi-Object Tracking (DAMOT) pipeline.
 
 ROS messages provided by [BEV_tracking ROS](https://github.com/JavierEgido/bevtracking) package are needed
 
@@ -60,6 +60,12 @@ Please add the path to the code to your PYTHONPATH in order to load the library 
 $ export PYTHONPATH=${PYTHONPATH}:/home/user/workspace/code/AB3DMOT
 $ export PYTHONPATH=${PYTHONPATH}:/home/user/workspace/code/Xinshuo_PyToolbox
 ```
+
+## DAMOT Docker for Nvidia Jetson AGX Xavier (September 2020 Update)
+
+A full Detection and Multi-Object Tracking (combined with forked [OpenPCDet](https://github.com/JavierEgido/OpenPCDet) developed for ARM Nvidia Jetson AGX Xavier can be downloaded from [link](https://mega.nz/file/id4UAaRD#GH1dICPYR7HRqozZckjQSpLP5vKtUwoubeCirGKs91Y).
+
+It provides a complete pipeline, using ROS PointCloud2 as input similarly to [OpenPCDet](https://github.com/JavierEgido/OpenPCDet) and producing tracked objects as output, using ROS [bev_tracking](https://github.com/JavierEgido/bevtracking) package also installed.
 
 ## 3D Object Detection
 For convenience, we provide the 3D detection of PointRCNN on the KITTI MOT dataset at "./data/KITTI/" for car, pedestrian and cyclist splits. Our detection results follow the format of the KITTI 3D Object Detection Challenge (format definition can be found in the object development toolkit here: http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) except that the order is switched. We show an example of detection as follows:
